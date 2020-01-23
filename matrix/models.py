@@ -7,8 +7,12 @@ class signup(models.Model):
     photo = models.ImageField(upload_to = '')
     citizenship_scan = models.FileField(upload_to = '')
     username = models.CharField(max_length=10)
-    password1 = models.CharField(max_length = 10)
-    password2 = models.CharField(max_length = 10)
+    password = models.CharField(max_length = 10)
+    confirm_password = models.CharField(max_length = 10)
+
+class local_bodies_id(models.Model):
+    username = models.CharField(max_length=20)
+    password = models.CharField(max_length = 20)
 
 
 
