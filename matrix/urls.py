@@ -9,4 +9,5 @@ urlpatterns = [
     path('cregister/save/',views.cregister,name='cregister1'),
     path('official-login/',views.officiallogin,name='official_login'),
     path('user-login/',views.userlogin,name = 'userlogin'),
+    path('search/',views.search,name = 'search'),
 ]

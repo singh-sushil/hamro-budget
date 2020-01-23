@@ -1,5 +1,5 @@
 from .forms import sign_up,official_login,user_login
-from .models import signup,local_bodies_id
+from .models import signup,local_bodies_id,Node
 from django.shortcuts import render,redirect
 from django.http import HttpResponse ,HttpResponseRedirect
 from django.contrib.auth.models import User,auth
@@ -66,5 +66,19 @@ def userlogin(request):
     else:
         form = user_login()
     return render(request,'ulogin.html',{'forms':form})
+
+
+
+def search(request):
+    if request.method == 'GET':
+        body = Node.objects.filter(body__regex = r'{}+'.format(request.GET['name']))
+    else:
+        alldoctor = dr_register.objects.all()
+    
+    context = {
+        'bodies':body
+    }
+
+    return render(request,'search.html',context)
 
     
