@@ -1,0 +1,7 @@
+<form class="form-horizontal" enctype="multipart/form-data" action="#" method="POST" >
+    {% csrf_token %}
+    <div>
+        {{ forms.as_p }}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
