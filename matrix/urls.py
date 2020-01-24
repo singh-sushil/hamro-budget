@@ -10,4 +10,5 @@ urlpatterns = [
     path('official-login/',views.officiallogin,name='official_login'),
     path('user-login/',views.userlogin,name = 'userlogin'),
     path('search/',views.search,name = 'search'),
+    path('province1/',views.province1,name = 'province'),
 ]

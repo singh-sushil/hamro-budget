@@ -15,6 +15,7 @@ class local_bodies_id(models.Model):
     password = models.CharField(max_length = 20)
 
 class Node(models.Model):
+    username = models.CharField(max_length=20,default = "charpani")
     body = models.CharField(max_length = 50) 
 
 

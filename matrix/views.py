@@ -19,7 +19,7 @@ def register(request):
 
 def cregister(request):
     if request.method == 'POST':
-        if request.POST['password1'] != request.POST['password2']:
+        if request.POST['password'] != request.POST['confirm_password']:
             messages.info(request,"password not matched")
             return redirect('/cregister/')
         else:
@@ -59,7 +59,10 @@ def userlogin(request):
                 #page = username+'.html'
                 #print(page)
                 #return render(request,'{}'.format(page),{}) 
-                return render(request,'local1.html',{})
+                site = Node.objects.get(username = request.POST['username'])
+                page = site.body + '.html'
+                return render(request,'{}'.format(page),{}) 
+                #return render(request,'local1.html',{})
             else:
                 messages.info(request,"username or password not matched")
                 return redirect("/user-login/")
@@ -82,3 +85,5 @@ def search(request):
     return render(request,'search.html',context)
 
     
+def province1(request):
+    return render(request,'province1.html',{})
