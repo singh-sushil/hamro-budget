@@ -1,5 +1,5 @@
 from django import forms
-from .models import signup,local_bodies_id
+from .models import signup,local_bodies_id,comment
 from django.forms import ModelForm
 class sign_up(ModelForm):
     class Meta:
@@ -42,4 +42,16 @@ class user_login(ModelForm):
                 'placeholder':'enter your firstname'
             }),
             'password':forms.PasswordInput(attrs = {'placeholder':'enter your password'}),
+        }
+
+class user_comment(ModelForm):
+    class Meta:
+        model = comment
+        fields = ['feedback']
+        widgets = {
+            'feedback':forms.Textarea(attrs = {
+                'placeholder':'give your feedback',
+                'rows':4,
+                'cols':30
+            }),
         }

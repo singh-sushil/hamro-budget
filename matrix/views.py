@@ -1,4 +1,4 @@
-from .forms import sign_up,official_login,user_login
+from .forms import sign_up,official_login,user_login,user_comment
 from .models import signup,local_bodies_id,Node
 from django.shortcuts import render,redirect
 from django.http import HttpResponse ,HttpResponseRedirect
@@ -72,18 +72,34 @@ def userlogin(request):
 
 
 
-def search(request):
+def search(request,username):
+
     if request.method == 'GET':
         body = Node.objects.filter(body__regex = r'{}+'.format(request.GET['name']))
     else:
-        alldoctor = dr_register.objects.all()
-    
+        return redirect(username)
     context = {
         'bodies':body
     }
-
     return render(request,'search.html',context)
 
     
 def province1(request):
     return render(request,'province1.html',{})
+
+def jhapa(request):
+    return render(request,'jhapa.html',{})
+
+def jhapagaupalika(request):
+    if request.method == 'POST':
+        form = user_comment(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('/jhapa/jhapagaunpalika/')
+        else:
+            return redirect("/jhapa/jhapagaunpalika/")
+    else:
+        form = user_comment()
+
+    return render(request,'jhapagaunpalika.html',{ 'forms':form })

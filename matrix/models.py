@@ -19,6 +19,9 @@ class Node(models.Model):
     body = models.CharField(max_length = 50) 
 
 
-
+class comment(models.Model):
+    feedback = models.CharField(max_length = 200)
+    
+    
 
 

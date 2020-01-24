@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Jhapa Gaunpalika</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css" />
   </head>
   <body>
     <body>
@@ -22,14 +23,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Register</a>
+        <a class="nav-link" href="/register/">User Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/user-login/">user_login</a>
+            <a class="dropdown-item" href="/official-login/">official_login</a>
+        </div>
+          </li>
       
       
     </ul>
@@ -41,20 +48,20 @@
 </nav>
    
     <div class="header">
-  <h2>Control Corruption</h2>
+  <h2>Let's control corruption</h2>
 </div>
 
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
+      <h5>Title description, jan24, 2020</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
     </div>
     <div class="card">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
+      <h5>Title description, jan24, 2020</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
     </div>
@@ -62,7 +69,7 @@
   <div class="rightcolumn">
     <div class="card">
       <h2>About </h2>
-      <img src="hero.jpg" alt="Image">
+      <img src="{% static 'hero.jpg' %}" alt="Image">
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
     </div>
     <div class="card">
@@ -73,12 +80,13 @@
     </div>
     <div class="card">
       <h3>Comment Here</h3>
-      
-          <textarea rows="4" cols="50" name="comment" form="usrform">
-        Enter text here...</textarea><br>
-        <form action="/action_page.php" id="usrform">
+      <form action="feedback/" method="POST" id="usrform">
+      {% csrf_token %}
+      <div>
+          {{ forms.as_p }}
+      </div>
         <input type="submit">
-        </form>
+      </form>
         
     </div>
   </div>

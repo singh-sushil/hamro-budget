@@ -23,20 +23,26 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Register</a>
+        <a class="nav-link" href="/register/">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/user-login/">user_login</a>
+            <a class="dropdown-item" href="/official-login/">official_login</a>
+        </div>
+          </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           District
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="jhapa.html">Jhapa</a>
+          <a class="dropdown-item" href="/jhapa/">Jhapa</a>
           <a class="dropdown-item" href="jhapa.html">Morang</a>
           <a class="dropdown-item" href="jhapa.html">Ilam</a>
           <a class="dropdown-item" href="jhapa.html">Dhankuta</a>
@@ -50,37 +56,32 @@
           <a class="dropdown-item" href="jhapa.html">Sunsari</a>
           <a class="dropdown-item" href="jhapa.html">Sankhuwasabha</a>
           <a class="dropdown-item" href="jhapa.html">Okhaldhunga</a>
-
-         
-
-          
-          
         </div>
       </li>
      
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" action="/search/">
+      <input class="form-control mr-sm-2" name="name" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
    
     <div class="header">
-  <h2>Stop Corruption</h2>
+  <h2>Let's control corruption</h2>
 </div>
 
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
+      <h5>Title description, jan24, 2020</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
     </div>
     <div class="card">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
+      <h5>Title description, jan24, 2020</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
     </div>
@@ -88,7 +89,8 @@
   <div class="rightcolumn">
     <div class="card">
       <h2>About </h2>
-      <img src="hero3.jpg" alt="Image">
+      {% load static %}
+      <img src="{% static 'hero3.jpg' %}" alt="Image">
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
     </div>
     <div class="card">

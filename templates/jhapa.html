@@ -9,10 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Home page</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="style.css">
-   
-
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,14 +22,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Register</a>
+        <a class="nav-link" href="/register/">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/user-login/">user_login</a>
+            <a class="dropdown-item" href="/official-login/">official_login</a>
+        </div>
+          </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Municipality
@@ -56,13 +60,13 @@
          Rural Municipality
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="jhapagaunpalika.html">Jhapa Gaunpalika</a>
-          <a class="dropdown-item" href="jhapagaunpalika.html">Gaurijung Gaunpalika</a>
-          <a class="dropdown-item" href="jhapagaunpalika.html">Kamal Gaunpalika</a>
-          <a class="dropdown-item" href="jhapagaunpalika.html">Buddha Shanti Gaunpalika</a>
-          <a class="dropdown-item" href="jhapagaunpalika.html">Kachankawal Gaunpalika</a>
-          <a class="dropdown-item" href="jhapagaunpalika.html">Barhadashi Gaunpalika</a>
-          <a class="dropdown-item" href="jhapagaunpalika.html">Haldibari Gaunpalika</a>
+          <a class="dropdown-item" href="jhapagaunpalika/">Jhapa Gaunpalika</a>
+          <a class="dropdown-item" href="#">Gaurijung Gaunpalika</a>
+          <a class="dropdown-item" href="#">Kamal Gaunpalika</a>
+          <a class="dropdown-item" href="#">Buddha Shanti Gaunpalika</a>
+          <a class="dropdown-item" href="#">Kachankawal Gaunpalika</a>
+          <a class="dropdown-item" href="#">Barhadashi Gaunpalika</a>
+          <a class="dropdown-item" href="#">Haldibari Gaunpalika</a>
           
 
           
@@ -81,28 +85,28 @@
 </nav>
    
     <div class="header">
-  <h2>Stop Corruption</h2>
+  <h2>Let's control corruption</h2>
 </div>
 
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
+      <h5>Title description, jan24, 2020</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
     </div>
     <div class="card">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
+      <h5>Title description, jan24, 2020</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
     </div>
   </div>
   <div class="rightcolumn">
     <div class="card">
-      
-      <img src="hero4.png" alt="Image">
+      {% load static %}
+      <img src="{% static 'hero4.png' %}" alt="Image">
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
     </div>
     <div class="card">
