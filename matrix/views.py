@@ -103,3 +103,15 @@ def jhapagaupalika(request):
         form = user_comment()
 
     return render(request,'jhapagaunpalika.html',{ 'forms':form })
+def drinking(request):
+    if request.method == 'POST':
+        form = user_comment(request.POST or None)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('/jhapa/jhapagaunpalika/')
+        else:
+            return redirect("/jhapa/jhapagaunpalika/drinking/")
+    else:
+        form = user_comment()
+    return render(request, 'drinking.html',{'forms':form })
