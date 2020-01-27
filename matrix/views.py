@@ -61,7 +61,7 @@ def userlogin(request):
                 #return render(request,'{}'.format(page),{}) 
                 site = Node.objects.get(username = request.POST['username'])
                 page = site.body + '.html'
-                return render(request,'{}'.format(page),{}) 
+                return render(request,'{}'.format(page)
                 #return render(request,'local1.html',{})
             else:
                 messages.info(request,"username or password not matched")
